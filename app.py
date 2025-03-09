@@ -702,7 +702,10 @@ elif page == "Problem 2: University Dashboard":
             yaxis_title='Number of Students',
             xaxis={'tickangle': 45}
         )
-        st.plotly_chart(fig)
+        # Removed the duplicate st.plotly_chart(fig) line here
+        st.plotly_chart(fig, use_container_width=True
+        )
+        # Removed the duplicate st.plotly_chart(fig) line here
         st.plotly_chart(fig, use_container_width=True)
         
         # Department comparison by year
@@ -1347,7 +1350,6 @@ elif page == "Problem 3: Data Visualization Comparison":
         
         In contrast, the improved visualization embodies several key principles of effective data communication. By using a clear 2D representation, it allows viewers to accurately assess the relationship between GDP and happiness without distortion. The distinct color scheme for different regions enables immediate recognition of regional patterns – we can clearly see how European countries cluster at the top-right, while African nations tend toward the bottom-left. By selectively labeling only key countries (highest, lowest, and notable outliers), it maintains context without overwhelming the viewer with text. The regression line provides an immediate visual representation of the overall relationship, allowing viewers to identify countries that deviate from the expected pattern. The thoughtful annotations highlight genuine insights rather than imposing simplistic conclusions.
         
-        What makes this comparison particularly instructive is that both visualizations use exactly the same underlying data. The dramatic difference in clarity and insight demonstrates how visualization choices can either reveal or conceal the story within the data. The poor visualization might lead viewers to conclude only that "rich countries are happier," while missing nuanced patterns like how Latin American countries consistently achieve higher happiness scores than their economic metrics would predict, or how certain regions show greater variability in happiness despite similar economic conditions.
-        
-        This comparison serves as a powerful reminder that data visualization is not merely a technical exercise but a form of communication that requires thoughtful design choices. The most effective visualizations strip away unnecessary complexity, highlight meaningful patterns, provide appropriate context, and ultimately respect both the data and the viewer's intelligence.
+        What makes this comparison particularly instructive is that both visualizations use exactly the same underlying data. The dramatic difference in clarity and insight demonstrates how visualization choices can either reveal or conceal the story within the data. The poor visualization might lead viewers to conclude only that "rich countries are happier," while missing nuanced patterns like how Latin American countries consistently achieve higher happiness scores than their economic metrics would predict, or how certain regions show greater variability in happiness despite similar economic conditions.This comparison serves as a powerful reminder that data visualization is not merely a technical exercise but a form of communication that requires thoughtful design choices. The most effective visualizations strip away unnecessary complexity, highlight meaningful patterns, provide appropriate context, and ultimately respect both the data and the viewer's intelligence.
         """)
+        
