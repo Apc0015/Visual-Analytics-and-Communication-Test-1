@@ -285,7 +285,7 @@ elif page == "Problem 1: Airport Analysis":
             title='Top 5 Destinations by Number of Flights',
             hover_data=['Destination Name']
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="top_destinations_chart")
     
     with tab2:
         st.markdown('<div class="sub-header">Flight Distribution Analysis</div>', unsafe_allow_html=True)
@@ -309,7 +309,7 @@ elif page == "Problem 1: Airport Analysis":
             xaxis_title='Flight Type',
             yaxis_title='Number of Flights'
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="domestic_international_chart")
         
         # Flight volume by time of day
         st.subheader("Flight Volume by Time of Day")
@@ -330,7 +330,7 @@ elif page == "Problem 1: Airport Analysis":
             color_discrete_sequence=px.colors.sequential.Blues_r
         )
         fig.update_traces(textposition='inside', textinfo='percent+label')
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="time_distribution_chart")
     
     with tab3:
         st.markdown('<div class="sub-header">Airline Operations</div>', unsafe_allow_html=True)
@@ -355,7 +355,7 @@ elif page == "Problem 1: Airport Analysis":
             yaxis_title='Number of Flights',
             xaxis={'categoryorder': 'total descending'}
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="airline_counts_chart")
         
         # Airline distribution for domestic vs international
         st.subheader("Airline Distribution: Domestic vs. International")
@@ -376,7 +376,7 @@ elif page == "Problem 1: Airport Analysis":
             barmode='group',
             title='Top Airlines: Domestic vs. International Flights'
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="airline_by_type_chart")
     
     # Generate report section
     with st.expander("View Airport Analysis Report", expanded=False):
@@ -548,7 +548,7 @@ elif page == "Problem 2: University Dashboard":
             yaxis_title='Count',
             xaxis={'tickangle': 45}
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="admissions_trends_chart")
         
         # Acceptance and Enrollment Rates
         st.subheader("Acceptance and Enrollment Rates Over Time")
@@ -575,7 +575,7 @@ elif page == "Problem 2: University Dashboard":
             yaxis_title='Rate (%)',
             xaxis={'tickangle': 45}
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="rates_over_time_chart")
     
     with tab2:
         st.markdown('<div class="sub-header">Enrollment & Retention Analysis</div>', unsafe_allow_html=True)
@@ -602,7 +602,7 @@ elif page == "Problem 2: University Dashboard":
             yaxis_title='Percentage (%)',
             xaxis={'tickangle': 45}
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="retention_satisfaction_chart")
         
         # Spring vs Fall Comparison
         st.subheader("Spring vs. Fall Term Comparison")
@@ -634,7 +634,7 @@ elif page == "Problem 2: University Dashboard":
             yaxis_title='Average Value',
             barmode='group'
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="term_comparison_chart")
     
     with tab3:
         st.markdown('<div class="sub-header">Departmental Analysis</div>', unsafe_allow_html=True)
@@ -662,7 +662,7 @@ elif page == "Problem 2: University Dashboard":
             color_discrete_sequence=px.colors.qualitative.Set3
         )
         fig.update_traces(textposition='inside', textinfo='percent+label')
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="department_pie_chart")
         
         
         # Department trends over time
@@ -694,8 +694,7 @@ elif page == "Problem 2: University Dashboard":
         fig.add_trace(go.Scatter(
             x=dept_data['Year-Term'],
             y=dept_data['Science Enrolled'],
-            mode='lines+markers',
-            name='Science'
+            mode='lines+markers',name='Science'
         ))
         fig.update_layout(
             title='Department Enrollment Trends Over Time',
@@ -704,14 +703,8 @@ elif page == "Problem 2: University Dashboard":
             xaxis={'tickangle': 45}
         )
 
-        # Add a unique key to this chart
+        # Display the chart only once with a unique key
         st.plotly_chart(fig, use_container_width=True, key="department_enrollment_trends")
-
-        # Removed the duplicate st.plotly_chart(fig) line here
-        st.plotly_chart(fig, use_container_width=True
-        )
-        # Removed the duplicate st.plotly_chart(fig) line here
-        st.plotly_chart(fig, use_container_width=True)
         
         # Department comparison by year
         st.subheader("Department Comparison by Year")
@@ -752,7 +745,7 @@ elif page == "Problem 2: University Dashboard":
             yaxis_title='Number of Students',
             barmode='stack'
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="department_yearly_comparison")
     
     # Summary insights section
     with st.expander("View University Dashboard Insights", expanded=False):
@@ -1334,7 +1327,7 @@ elif page == "Problem 3: Data Visualization Comparison":
         plt.tight_layout()
         plt.savefig(buffer, format='png')
         buffer.seek(0)
-        st.image(buffer, use_column_width=True)
+        st.image(buffer, use_container_width=True)
         plt.close()
         
         st.markdown("""
@@ -1355,6 +1348,5 @@ elif page == "Problem 3: Data Visualization Comparison":
         
         In contrast, the improved visualization embodies several key principles of effective data communication. By using a clear 2D representation, it allows viewers to accurately assess the relationship between GDP and happiness without distortion. The distinct color scheme for different regions enables immediate recognition of regional patterns – we can clearly see how European countries cluster at the top-right, while African nations tend toward the bottom-left. By selectively labeling only key countries (highest, lowest, and notable outliers), it maintains context without overwhelming the viewer with text. The regression line provides an immediate visual representation of the overall relationship, allowing viewers to identify countries that deviate from the expected pattern. The thoughtful annotations highlight genuine insights rather than imposing simplistic conclusions.
         
-        What makes this comparison particularly instructive is that both visualizations use exactly the same underlying data. The dramatic difference in clarity and insight demonstrates how visualization choices can either reveal or conceal the story within the data. The poor visualization might lead viewers to conclude only that "rich countries are happier," while missing nuanced patterns like how Latin American countries consistently achieve higher happiness scores than their economic metrics would predict, or how certain regions show greater variability in happiness despite similar economic conditions.This comparison serves as a powerful reminder that data visualization is not merely a technical exercise but a form of communication that requires thoughtful design choices. The most effective visualizations strip away unnecessary complexity, highlight meaningful patterns, provide appropriate context, and ultimately respect both the data and the viewer's intelligence.
+        What makes this comparison particularly instructive is that both visualizations use exactly the same underlying data. The dramatic difference in clarity and insight demonstrates how visualization choices can either reveal or concealthe story within the data. The poor visualization might lead viewers to conclude only that "rich countries are happier," while missing nuanced patterns like how Latin American countries consistently achieve higher happiness scores than their economic metrics would predict, or how certain regions show greater variability in happiness despite similar economic conditions.This comparison serves as a powerful reminder that data visualization is not merely a technical exercise but a form of communication that requires thoughtful design choices. The most effective visualizations strip away unnecessary complexity, highlight meaningful patterns, provide appropriate context, and ultimately respect both the data and the viewer's intelligence.
         """)
-        
