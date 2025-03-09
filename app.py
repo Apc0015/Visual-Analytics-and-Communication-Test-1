@@ -1025,7 +1025,7 @@ elif page == "Problem 3: Data Visualization Comparison":
         buffer = io.BytesIO()
         plt.savefig(buffer, format='png')
         buffer.seek(0)
-        st.image(buffer, use_column_width=True)
+        st.image(buffer, use_container_width=True)
         plt.close()
     
     with tab2:
