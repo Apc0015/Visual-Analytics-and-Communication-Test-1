@@ -664,6 +664,7 @@ elif page == "Problem 2: University Dashboard":
         fig.update_traces(textposition='inside', textinfo='percent+label')
         st.plotly_chart(fig, use_container_width=True)
         
+        
         # Department trends over time
         st.subheader("Department Enrollment Trends")
         
@@ -702,6 +703,10 @@ elif page == "Problem 2: University Dashboard":
             yaxis_title='Number of Students',
             xaxis={'tickangle': 45}
         )
+
+        # Add a unique key to this chart
+        st.plotly_chart(fig, use_container_width=True, key="department_enrollment_trends")
+
         # Removed the duplicate st.plotly_chart(fig) line here
         st.plotly_chart(fig, use_container_width=True
         )
