@@ -1137,7 +1137,7 @@ elif page == "Problem 3: Data Visualization Comparison":
         plt.tight_layout()
         plt.savefig(buffer, format='png')
         buffer.seek(0)
-        st.image(buffer, use_column_width=True)
+        st.image(buffer, use_container_width=True)
         plt.close()
     
     with tab3:
@@ -1238,7 +1238,7 @@ elif page == "Problem 3: Data Visualization Comparison":
         plt.tight_layout(rect=[0, 0, 1, 0.95])
         plt.savefig(buffer, format='png')
         buffer.seek(0)
-        st.image(buffer, use_column_width=True)
+        st.image(buffer, use_container_width=True)
         plt.close()
         
         # Analysis of the visualizations
