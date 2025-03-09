@@ -778,18 +778,7 @@ elif page == "Problem 2: University Dashboard":
            indicating potential areas for improving conversion in the admissions funnel.
         """)
         
-        st.markdown("## Recommendations")
-        st.markdown("""
-        1. **Targeted Recruitment**: Develop department-specific recruitment strategies based on enrollment trends and capacity.
-        
-        2. **Term-Based Planning**: Adjust resources and support services to accommodate the different volumes and needs in Spring vs. Fall terms.
-        
-        3. **Satisfaction Drivers**: Conduct deeper analysis to identify factors contributing to student satisfaction and retention improvements.
-        
-        4. **Departmental Resources**: Allocate resources proportionally to departments based on enrollment trends and growth patterns.
-        
-        5. **Admissions Process Optimization**: Review the admissions funnel to identify stages where improvements could increase yield rates.
-        """)
+
 
 # Problem 3: Data Visualization Comparison
 elif page == "Problem 3: Data Visualization Comparison":
